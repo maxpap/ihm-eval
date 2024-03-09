@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cd app && ng test",
+    "test": "cd app && npm test",
     "serve": "cd app && npm i && npm run dev",
     "start": "cd app && npm i && npm run dev",
     "cy:run": "cypress run",
