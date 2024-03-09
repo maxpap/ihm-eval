@@ -16,7 +16,10 @@ const CreateCustomer = () => {
 
     return (
         <>
-            <h3>Créer un client</h3>
+            <div className="pt-5 text-center">
+                <h1 className="text-3xl font-bold pb-2">Créer un client</h1>
+                <p>Créez un nouveau client en remplissant ce formulaire.</p>
+            </div>
             <CustomerForm handleCreateCustomer={handleCreateCustomer} />
         </>
     );

@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CreateCustomer from "./pages/CreateCustomer";
-import CustomerDetails from "./pages/CustomerDetails";
-import CustomersIndex from "./pages/CustomersIndex";
+import CustomerDetails from "./pages/CustomerDetails/CustomerDetails";
+import CustomersIndex from "./pages/CustomersIndex/CustomersIndex";
 import CreateInvoice from "./pages/CreateInvoice";
 
 const App = () => {
@@ -12,7 +12,7 @@ const App = () => {
         element={<CreateCustomer />}
       />
       <Route
-        path="/:idcustomer"
+        path="/:id"
         element={<CustomerDetails />}
       />
       <Route
@@ -20,7 +20,7 @@ const App = () => {
         element={<CustomersIndex />}
       />
       <Route
-        path="/:idcustomer/invoices/add"
+        path="/:id/invoices/add"
         element={<CreateInvoice />}
       />
     </Routes>

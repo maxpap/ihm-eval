@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { CustomerFormProps } from "../types/props/CustomerFormProps";
 import { useState } from "react";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
 
 const CustomerForm = ({ handleCreateCustomer }: CustomerFormProps) => {
 
@@ -16,22 +18,34 @@ const CustomerForm = ({ handleCreateCustomer }: CustomerFormProps) => {
         handleCreateCustomer(customer);
     }
 
-    return <form onSubmit={handleSubmit}>
-        <input
-            type="text"
-            value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
-            placeholder="Nom complet"
-        />
-        <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-        />
-        <Link to={"/"}>Annuler</Link>
-        <button type="submit">Enregistrer</button>
-    </form>
+    return (
+        <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-6">
+            <div className="mb-4">
+                <Input
+                    type="text"
+                    name="fullName"
+                    value={fullName}
+                    onChange={(e) => setFullName(e?.target?.value)}
+                    placeholder="Nom complet"
+                />
+            </div>
+            <div className="mb-4">
+                <Input
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e?.target?.value)}
+                    placeholder="Email"
+                />
+            </div>
+            <div className="flex justify-end">
+                <Button variant={"destructive"} asChild>
+                    <Link to={"/"}>Annuler</Link>
+                </Button>
+                <Button variant={"default"} type="submit" className="ml-2">Enregistrer</Button>
+            </div>
+        </form>
+    );
 }
 
 export default CustomerForm;
