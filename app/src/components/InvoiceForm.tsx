@@ -2,8 +2,11 @@ import { InvoiceFormProps } from "../types/props/InvoiceFormProps";
 import { useState } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import { useNavigate } from "react-router-dom";
 
 const InvoiceForm = ({ handleCreateInvoice, customerID }: InvoiceFormProps) => {
+
+    const navigate = useNavigate();
 
     const [total, setTotal] = useState("");
     const [status, setStatus] = useState("SENT");
@@ -37,6 +40,7 @@ const InvoiceForm = ({ handleCreateInvoice, customerID }: InvoiceFormProps) => {
             </select>
         </div>
         <div className="flex justify-end">
+            <Button variant={"destructive"} onClick={() => navigate(-1)}>Annuler</Button>
             <Button variant={"default"} type="submit" className="ml-2">Enregistrer la facture</Button>
         </div>
     </form >
